@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pizzaria do Zé — Rodízio de Pizza em São Vicente</title>
+<meta name="description" content="Rodízio de pizza em São Vicente de sexta a domingo, das 18h às 23h. R$ 99,90 com refil de refrigerante e espaço kids inclusos. Pizzas clássicas, gourmet, da casa e doces à vontade.">
+<meta name="theme-color" content="#D6202B">
+<link rel="icon" href="assets/logo.png">
+
+<meta property="og:type" content="restaurant">
+<meta property="og:title" content="Pizzaria do Zé — O melhor rodízio de São Vicente">
+<meta property="og:description" content="Rodízio de sexta a domingo, 18h às 23h. R$ 99,90 com refil e espaço kids inclusos.">
+<meta property="og:image" content="assets/logo.png">
+<meta property="og:locale" content="pt_BR">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ═══════════ PRELOADER ═══════════ -->
+<div class="preloader" id="preloader">
+  <div class="preloader__inner">
+    <img src="assets/logo.png" alt="" class="preloader__logo">
+    <div class="preloader__bar"><i></i></div>
+    <span class="preloader__pct">0%</span>
+  </div>
+  <div class="preloader__curtain"></div>
+</div>
+
+<!-- ═══════════ GRÃO / CURSOR ═══════════ -->
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor" id="cursor" aria-hidden="true"><span></span></div>
+
+<!-- ═══════════ NAV ═══════════ -->
+<header class="nav" id="nav">
+  <a href="#topo" class="nav__brand" data-hover>
+    <img src="assets/logo.png" alt="Pizzaria do Zé">
+    <span>Pizzaria<br><b>do Zé</b></span>
+  </a>
+
+  <nav class="nav__links" id="navLinks">
+    <a href="#rodizio"  data-hover>Rodízio</a>
+    <a href="#cardapio" data-hover>Cardápio</a>
+    <a href="#kids"     data-hover>Espaço Kids</a>
+    <a href="#pedir"    data-hover>Delivery</a>
+    <a href="#local"    data-hover>Onde estamos</a>
+  </nav>
+
+  <div class="nav__right">
+    <span class="nav__status" id="navStatus"><i></i><em>—</em></span>
+    <a href="#reserva" class="btn btn--sm" data-hover data-cta-reserva>Reservar mesa</a>
+    <button class="nav__burger" id="burger" aria-label="Abrir menu" aria-expanded="false"><i></i><i></i></button>
+  </div>
+</header>
+
+<main id="topo">
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero" id="hero">
+  <div class="hero__ing" id="heroIng" aria-hidden="true"></div>
+
+  <div class="hero__glow" aria-hidden="true"></div>
+
+  <div class="hero__content">
+    <span class="hero__eyebrow">
+      <i></i> São Vicente · SP — desde sempre no centro
+    </span>
+
+    <h1 class="hero__title">
+      <span class="line"><span class="word" data-split>Pizzaria</span></span>
+      <span class="line"><span class="word word--red" data-split>do Zé</span></span>
+    </h1>
+
+    <p class="hero__sub">
+      O rodízio que virou tradição em São Vicente.<br>
+      <b>Sexta a domingo</b>, das <b>18h às 23h</b> — pizza à vontade, refil de
+      refrigerante e espaço kids <b>tudo incluso</b>.
+    </p>
+
+    <div class="hero__cta">
+      <a href="#rodizio" class="btn btn--big" data-magnet data-hover>
+        Ver o rodízio
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="#pedir" class="btn btn--ghost btn--big" data-magnet data-hover>Pedir delivery</a>
+    </div>
+  </div>
+
+  <!-- selo circular giratório -->
+  <div class="seal" aria-hidden="true">
+    <svg viewBox="0 0 200 200" class="seal__text">
+      <defs><path id="sealPath" d="M100,100 m-74,0 a74,74 0 1,1 148,0 a74,74 0 1,1 -148,0"/></defs>
+      <text><textPath href="#sealPath">RODÍZIO · SEXTA A DOMINGO · 18H ÀS 23H · R$ 99,90 · </textPath></text>
+    </svg>
+    <div class="seal__core"><b>99</b><i>,90</i></div>
+  </div>
+
+  <!-- pizza gigante no fundo -->
+  <div class="hero__pizza" id="heroPizza">
+    <div class="hero__pizza-ring" aria-hidden="true"></div>
+    <img src="assets/pizza.svg" alt="Pizza da Pizzaria do Zé vista de cima">
+  </div>
+
+  <a href="#rodizio" class="scrollcue" aria-label="Rolar para baixo"><i></i><span>role</span></a>
+</section>
+
+<!-- ═══════════ MARQUEE ═══════════ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track" id="mq1"></div>
+</div>
+
+<!-- ═══════════ NÚMEROS ═══════════ -->
+<section class="factsbar">
+  <div class="wrap factsbar__grid">
+    <div><b data-count="99.90" data-prefix="R$ ">R$ 0</b><span>por pessoa, à vontade</span></div>
+    <div><b data-count="4">0</b><span>linhas de pizza inclusas</span></div>
+    <div><b>∞</b><span>refil de refrigerante</span></div>
+    <div><b data-count="3">0</b><span>noites de rodízio</span></div>
+  </div>
+</section>
+
+<!-- ═══════════ RODÍZIO ═══════════ -->
+<section class="rodizio" id="rodizio">
+  <div class="rodizio__bg" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <header class="shead shead--light">
+      <span class="shead__tag" data-reveal>O carro-chefe</span>
+      <h2 class="shead__title" data-lines>Rodízio de <em>sexta a domingo</em></h2>
+      <p class="shead__desc" data-reveal>
+        Você senta, a gente traz. Pizza sai do forno e vai direto pra sua mesa, uma
+        atrás da outra, até você pedir arrego. Sem taxa escondida, sem pegadinha.
+      </p>
+    </header>
+
+    <div class="price">
+      <article class="price__card price__card--main" data-reveal>
+        <span class="price__badge">Adulto</span>
+        <div class="price__value"><small>R$</small><b>99</b><i>,90</i></div>
+        <span class="price__per">por pessoa · à vontade</span>
+        <ul class="price__list">
+          <li>Todas as pizzas <b>clássicas</b></li>
+          <li>Todas as <b>gourmet</b></li>
+          <li>As exclusivas <b>da casa</b></li>
+          <li>As <b>doces</b> de sobremesa</li>
+          <li><b>Refil de refrigerante</b> à vontade</li>
+          <li><b>Espaço kids</b> liberado</li>
+        </ul>
+        <a href="#reserva" class="btn btn--full" data-hover data-cta-reserva>Reservar minha mesa</a>
+      </article>
+
+      <div class="price__side">
+        <article class="price__card price__card--alt" data-reveal>
+          <span class="price__badge price__badge--gold">Criançada</span>
+          <div class="price__mini">
+            <div><b>Grátis</b><span>até 5 anos</span></div>
+            <div><b>R$ 49,90</b><span>de 6 a 10 anos</span></div>
+          </div>
+          <p>Acima de 10 anos paga o valor normal. O espaço kids está incluso em qualquer caso.</p>
+        </article>
+
+        <article class="price__card price__card--when" data-reveal>
+          <span class="price__badge price__badge--gold">Quando rola</span>
+          <div class="days" id="days"></div>
+          <div class="price__clock">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            <b>18h às 23h</b>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <p class="rodizio__note" data-reveal>
+      * Fora do rodízio (terça a quinta) atendemos com o cardápio à la carte e delivery normalmente.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════ COMO FUNCIONA ═══════════ -->
+<section class="how" id="how">
+  <div class="how__ing" id="howIng" aria-hidden="true"></div>
+  <div class="how__ghost" aria-hidden="true">RODÍZIO</div>
+
+  <div class="wrap how__head">
+    <div>
+      <span class="shead__tag" data-reveal>Simples assim</span>
+      <h2 class="shead__title" data-lines>Como funciona<br>o rodízio</h2>
+    </div>
+    <div class="how__meta" data-reveal>
+      <div class="how__count"><b id="stepNow">01</b><span>/ 05</span></div>
+      <p>Cinco passos e você já está na segunda fatia. Sem cardápio, sem escolher sabor, sem taxa surpresa.</p>
+      <span class="how__hint">
+        role para o lado
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </span>
+    </div>
+  </div>
+
+  <div class="how__viewport">
+    <div class="steps" id="steps">
+
+      <article class="step" style="--c:#D6202B">
+        <span class="step__bg" aria-hidden="true">01</span>
+        <div class="step__ico">
+          <svg viewBox="0 0 32 32"><path d="M6 27V9a3 3 0 0 1 3-3h14a3 3 0 0 1 3 3v18"/><path d="M6 18h20M11 27v-4h10v4"/></svg>
+        </div>
+        <span class="step__n">01</span>
+        <h3>Chega e senta</h3>
+        <p>Reserve pelo WhatsApp ou chegue e pegue sua senha. Sexta e sábado enche cedo — vale reservar.</p>
+        <span class="step__tip">Reserva pelo WhatsApp</span>
+      </article>
+
+      <article class="step" style="--c:#EFA500">
+        <span class="step__bg" aria-hidden="true">02</span>
+        <div class="step__ico">
+          <svg viewBox="0 0 32 32"><path d="M27 19a4 4 0 0 1-4 4H11l-6 5V9a4 4 0 0 1 4-4h14a4 4 0 0 1 4 4Z"/><path d="M12 12h9M12 16h6"/></svg>
+        </div>
+        <span class="step__n">02</span>
+        <h3>Avisa que é rodízio</h3>
+        <p>Fala com o garçom e pronto. Um valor único por pessoa, nada de escolher sabor no papel.</p>
+        <span class="step__tip">R$ 99,90 por pessoa</span>
+      </article>
+
+      <article class="step" style="--c:#C8202A">
+        <span class="step__bg" aria-hidden="true">03</span>
+        <div class="step__ico">
+          <svg viewBox="0 0 32 32"><path d="M16 4c7 0 12 5 12 12H4C4 9 9 4 16 4Z"/><path d="M4 16c0 7 5 12 12 12s12-5 12-12"/><circle cx="13" cy="11" r="1.6"/><circle cx="20" cy="12" r="1.6"/><circle cx="16" cy="19" r="1.6"/></svg>
+        </div>
+        <span class="step__n">03</span>
+        <h3>A pizza vem até você</h3>
+        <p>Saiu do forno, passa na mesa. Você pega a fatia que quiser, quantas vezes quiser.</p>
+        <span class="step__tip">Clássica · Gourmet · Da casa</span>
+      </article>
+
+      <article class="step" style="--c:#4C7A3F">
+        <span class="step__bg" aria-hidden="true">04</span>
+        <div class="step__ico">
+          <svg viewBox="0 0 32 32"><path d="M8 7h16l-2 20a2 2 0 0 1-2 2h-8a2 2 0 0 1-2-2Z"/><path d="M9 15h14M16 3v4"/></svg>
+        </div>
+        <span class="step__n">04</span>
+        <h3>Refil sem contar copo</h3>
+        <p>Refrigerante liberado durante todo o rodízio. Já está no valor e não aparece na conta depois.</p>
+        <span class="step__tip">Refil incluso</span>
+      </article>
+
+      <article class="step" style="--c:#B0561F">
+        <span class="step__bg" aria-hidden="true">05</span>
+        <div class="step__ico">
+          <svg viewBox="0 0 32 32"><path d="M16 28s-11-6.6-11-14a6 6 0 0 1 11-3.3A6 6 0 0 1 27 14c0 7.4-11 14-11 14Z"/></svg>
+        </div>
+        <span class="step__n">05</span>
+        <h3>Fecha no doce</h3>
+        <p>Quando achar que acabou, chegam as doces. Chocolate, prestígio, Romeu e Julieta e mais.</p>
+        <span class="step__tip">Sobremesa inclusa</span>
+      </article>
+
+      <article class="step step--cta">
+        <h3>Deu fome?</h3>
+        <p>Garanta sua mesa antes que a casa lote. Leva 30 segundos pelo WhatsApp.</p>
+        <a href="#reserva" class="btn btn--full" data-hover data-cta-reserva>Reservar agora</a>
+      </article>
+
+    </div>
+  </div>
+
+  <div class="wrap"><div class="how__rail"><i id="stepBar"></i></div></div>
+</section>
+
+<!-- ═══════════ CARDÁPIO ═══════════ -->
+<section class="menu" id="cardapio">
+  <div class="wrap">
+    <header class="shead">
+      <span class="shead__tag" data-reveal>Cardápio completo</span>
+      <h2 class="shead__title" data-lines>Tudo que sai do <em>nosso forno</em></h2>
+      <p class="shead__desc" data-reveal>
+        No rodízio, todas as pizzas abaixo entram no valor único de R$ 99,90.
+        Os preços da tabela valem para pedidos à la carte, balcão e delivery.
+      </p>
+    </header>
+
+    <div class="menu__tabs" id="menuTabs" role="tablist"></div>
+    <div class="menu__panels" id="menuPanels"></div>
+
+    <p class="menu__note">
+      Preços sujeitos a alteração. Consulte a disponibilidade de sabores sazonais no dia.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════ MARQUEE 2 ═══════════ -->
+<div class="marquee marquee--alt" aria-hidden="true">
+  <div class="marquee__track" id="mq2"></div>
+</div>
+
+<!-- ═══════════ ESPAÇO KIDS ═══════════ -->
+<section class="kids" id="kids">
+  <div class="wrap kids__grid">
+    <div class="kids__text">
+      <span class="shead__tag" data-reveal>Incluso no rodízio</span>
+      <h2 class="shead__title" data-lines>Espaço kids <em>de verdade</em></h2>
+      <p data-reveal>
+        Enquanto vocês comem em paz, a criançada se diverte ali do lado — piscina de
+        bolinhas, escorregador e área acolchoada, tudo dentro do salão e à vista dos pais.
+      </p>
+      <ul class="kids__list" data-reveal>
+        <li>Piscina de bolinhas e escorregador</li>
+        <li>Área acolchoada e sinalizada</li>
+        <li>Dentro do salão, sempre à vista</li>
+        <li>Sem custo extra — já está no rodízio</li>
+      </ul>
+      <a href="#reserva" class="btn" data-hover data-cta-reserva>Trazer a família</a>
+    </div>
+
+    <div class="kids__art" aria-hidden="true">
+      <div class="ball ball--1"></div><div class="ball ball--2"></div>
+      <div class="ball ball--3"></div><div class="ball ball--4"></div>
+      <div class="ball ball--5"></div><div class="ball ball--6"></div>
+      <div class="kids__slide"></div>
+      <div class="kids__pool"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ AMBIENTE / FACHADA ═══════════ -->
+<section class="place" id="ambiente">
+  <div class="place__stripes" aria-hidden="true"></div>
+  <div class="wrap">
+    <header class="shead shead--light shead--center">
+      <span class="shead__tag" data-reveal>No coração do centro</span>
+      <h2 class="shead__title" data-lines>Aquela pizzaria <em>de bairro</em></h2>
+      <p class="shead__desc" data-reveal>
+        Fachada vermelha e amarela que você reconhece de longe, mesas na calçada,
+        varal de luzinhas e cheiro de forno na rua. É esse o ponto de encontro.
+      </p>
+    </header>
+
+    <div class="place__facade" id="facade">
+      <div class="facade">
+        <div class="facade__sign">
+          <img src="assets/logo.png" alt="" class="facade__logo">
+          <div class="facade__name"><b>Pizzaria</b><span>do Zé</span></div>
+        </div>
+        <div class="facade__band">RODÍZIO DE SEXTA A DOMINGO</div>
+        <div class="facade__windows">
+          <div class="facade__win facade__win--main">
+            <div class="facade__tables"><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="facade__win facade__win--kids"><span>ESPAÇO KIDS</span></div>
+        </div>
+        <div class="facade__awning" aria-hidden="true"></div>
+        <div class="facade__lights" aria-hidden="true"></div>
+      </div>
+      <p class="place__cap">Troque este bloco pela foto real em <code>assets/fachada.jpg</code> — veja o README.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PEDIR / DELIVERY ═══════════ -->
+<section class="order" id="pedir">
+  <div class="wrap">
+    <header class="shead">
+      <span class="shead__tag" data-reveal>Sem sair de casa</span>
+      <h2 class="shead__title" data-lines>Peça pelo app <em>que você já usa</em></h2>
+      <p class="shead__desc" data-reveal>
+        Estamos nos principais aplicativos de entrega — e também fazemos delivery
+        próprio pelo WhatsApp, direto com a cozinha.
+      </p>
+    </header>
+    <div class="order__grid" id="appsGrid"></div>
+    <p class="order__note">O rodízio é exclusivo no salão. No delivery e balcão trabalhamos com o cardápio à la carte.</p>
+  </div>
+</section>
+
+<!-- ═══════════ RESERVA ═══════════ -->
+<section class="book" id="reserva">
+  <div class="wrap book__grid">
+    <div class="book__text">
+      <span class="shead__tag" data-reveal>Garanta seu lugar</span>
+      <h2 class="shead__title" data-lines>Reserve sua mesa</h2>
+      <p data-reveal>
+        Sexta e sábado a casa costuma lotar depois das 19h30. Preencha aí do lado que
+        a gente já abre a conversa no WhatsApp com tudo preenchido — é só apertar enviar.
+      </p>
+      <div class="book__alt" data-reveal>
+        <a href="#" class="book__phone" id="telLink" data-hover>
+          <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z"/></svg>
+          <span>Prefere ligar?<b id="telNum">—</b></span>
+        </a>
+      </div>
+    </div>
+
+    <form class="book__form" id="bookForm" novalidate>
+      <div class="field">
+        <label for="bNome">Seu nome</label>
+        <input id="bNome" name="nome" type="text" placeholder="Como te chamamos?" required autocomplete="name">
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="bData">Dia</label>
+          <input id="bData" name="data" type="date" required>
+        </div>
+        <div class="field">
+          <label for="bHora">Horário</label>
+          <select id="bHora" name="hora" required>
+            <option value="18:00">18:00</option><option value="18:30">18:30</option>
+            <option value="19:00" selected>19:00</option><option value="19:30">19:30</option>
+            <option value="20:00">20:00</option><option value="20:30">20:30</option>
+            <option value="21:00">21:00</option><option value="21:30">21:30</option>
+            <option value="22:00">22:00</option>
+          </select>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="bPessoas">Pessoas</label>
+          <select id="bPessoas" name="pessoas" required>
+            <option>1</option><option>2</option><option>3</option><option selected>4</option>
+            <option>5</option><option>6</option><option>7</option><option>8</option>
+            <option value="9+">9 ou mais</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="bCriancas">Crianças</label>
+          <select id="bCriancas" name="criancas">
+            <option value="0" selected>Nenhuma</option><option value="1">1</option>
+            <option value="2">2</option><option value="3">3</option><option value="4+">4 ou mais</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="bObs">Alguma observação? <i>(opcional)</i></label>
+        <textarea id="bObs" name="obs" rows="2" placeholder="Aniversário, cadeirinha, restrição alimentar..."></textarea>
+      </div>
+      <button type="submit" class="btn btn--full btn--big" data-hover>
+        Enviar no WhatsApp
+        <svg viewBox="0 0 24 24" class="ico-wa"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Z"/></svg>
+      </button>
+      <p class="book__legal">Abre uma conversa no WhatsApp com a mensagem pronta. Nada é enviado sem você confirmar.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ═══════════ LOCALIZAÇÃO ═══════════ -->
+<section class="local" id="local">
+  <div class="wrap local__grid">
+    <div class="local__info">
+      <span class="shead__tag" data-reveal>Onde estamos</span>
+      <h2 class="shead__title" data-lines>Vem pro centro</h2>
+
+      <address class="local__addr" data-reveal id="addrBox"></address>
+
+      <h3 class="local__h3" data-reveal>Horário de funcionamento</h3>
+      <ul class="hours" id="hoursList"></ul>
+
+      <a href="#" class="btn btn--ghost" id="mapBtn" target="_blank" rel="noopener" data-hover>
+        Traçar rota no Maps
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <div class="local__map" data-reveal>
+      <iframe id="mapFrame" title="Mapa da Pizzaria do Zé" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ REDES ═══════════ -->
+<section class="social" id="social">
+  <div class="wrap">
+    <header class="shead shead--center">
+      <span class="shead__tag" data-reveal>Cola com a gente</span>
+      <h2 class="shead__title" data-lines>Nas redes</h2>
+      <p class="shead__desc" data-reveal>
+        Sabor do dia, promoção relâmpago e os bastidores do forno. Segue lá que
+        você fica sabendo antes.
+      </p>
+    </header>
+    <div class="social__grid" id="socialGrid"></div>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__top">
+      <a href="#topo" class="foot__brand" data-hover>
+        <img src="assets/logo.png" alt="">
+        <span>Pizzaria <b>do Zé</b></span>
+      </a>
+      <p class="foot__slogan">O melhor rodízio do centro<br>de São Vicente</p>
+    </div>
+
+    <div class="foot__cols">
+      <div>
+        <h4>Navegue</h4>
+        <a href="#rodizio">Rodízio</a><a href="#cardapio">Cardápio</a>
+        <a href="#kids">Espaço Kids</a><a href="#pedir">Delivery</a>
+        <a href="#reserva">Reservar mesa</a>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <a href="#" id="footTel">—</a>
+        <a href="#" id="footWa">WhatsApp</a>
+        <a href="#local">Como chegar</a>
+      </div>
+      <div>
+        <h4>Redes</h4>
+        <div id="footSocial"></div>
+      </div>
+    </div>
+
+    <div class="foot__bar">
+      <span>© <b id="year">2026</b> Pizzaria do Zé — São Vicente, SP.</span>
+      <span>Feito com massa de fermentação natural.</span>
+    </div>
+  </div>
+  <div class="foot__giant" aria-hidden="true">DO ZÉ</div>
+</footer>
+
+<!-- ═══════════ WHATSAPP FLUTUANTE ═══════════ -->
+<a href="#" class="wafloat" id="waFloat" target="_blank" rel="noopener" aria-label="Falar no WhatsApp" data-hover>
+  <svg viewBox="0 0 32 32"><path d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3Zm7.5 18.4c-.3.9-1.8 1.7-2.5 1.8-.6.1-1.4.1-2.3-.1a19 19 0 0 1-8.3-7.3c-.6-1-1-2.1-1-3.2 0-1.2.6-1.8.9-2.1.2-.3.6-.4.8-.4h.6c.2 0 .5 0 .7.5l1 2.4c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.4.9 1.5 1.9 2.4 1.3 1.2 2.4 1.5 2.7 1.7.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l2.3 1.1c.3.2.5.2.6.4.1.1.1.6-.2 1.4Z"/></svg>
+  <span>Fale com a gente</span>
+</a>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/menu.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

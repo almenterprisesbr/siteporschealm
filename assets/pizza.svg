@@ -1,0 +1,211 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800" role="img" aria-label="Pizza da Pizzaria do Zé vista de cima">
+<defs>
+  <!-- bordas orgânicas: deforma o círculo com ruído -->
+  <filter id="melt" x="-18%" y="-18%" width="136%" height="136%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.011" numOctaves="4" seed="11" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="30" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+  <filter id="melt2" x="-18%" y="-18%" width="136%" height="136%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.016" numOctaves="4" seed="29" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="22" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+  <filter id="soft"><feGaussianBlur stdDeviation="9"/></filter>
+  <filter id="soft2"><feGaussianBlur stdDeviation="4"/></filter>
+  <filter id="shadow" x="-25%" y="-25%" width="150%" height="150%">
+    <feDropShadow dx="0" dy="26" stdDeviation="26" flood-color="#3A1B06" flood-opacity=".38"/>
+  </filter>
+  <!-- granulado fotográfico -->
+  <filter id="grain">
+    <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" seed="3" result="n"/>
+    <feColorMatrix in="n" type="saturate" values="0" result="g"/>
+    <feComponentTransfer in="g" result="a"><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+    <feComposite in="a" in2="SourceGraphic" operator="in"/>
+  </filter>
+
+  <radialGradient id="gCrust" cx="40%" cy="34%" r="74%">
+    <stop offset="0%"   stop-color="#F3C173"/>
+    <stop offset="48%"  stop-color="#E0A24C"/>
+    <stop offset="80%"  stop-color="#C87F2E"/>
+    <stop offset="100%" stop-color="#9E5B1B"/>
+  </radialGradient>
+  <radialGradient id="gSauce" cx="42%" cy="38%" r="70%">
+    <stop offset="0%"   stop-color="#C9412C"/>
+    <stop offset="70%"  stop-color="#A82D1F"/>
+    <stop offset="100%" stop-color="#7E1D13"/>
+  </radialGradient>
+  <radialGradient id="gCheese" cx="38%" cy="32%" r="76%">
+    <stop offset="0%"   stop-color="#FFE9A8"/>
+    <stop offset="42%"  stop-color="#F9CE63"/>
+    <stop offset="78%"  stop-color="#EDB03C"/>
+    <stop offset="100%" stop-color="#D8912A"/>
+  </radialGradient>
+  <radialGradient id="gPep" cx="36%" cy="30%" r="76%">
+    <stop offset="0%"   stop-color="#C9463A"/>
+    <stop offset="55%"  stop-color="#A82A22"/>
+    <stop offset="100%" stop-color="#7C1712"/>
+  </radialGradient>
+  <linearGradient id="gLeaf" x1="20%" y1="0%" x2="80%" y2="100%">
+    <stop offset="0%"   stop-color="#79B45C"/>
+    <stop offset="55%"  stop-color="#4C8438"/>
+    <stop offset="100%" stop-color="#2E5A24"/>
+  </linearGradient>
+
+  <!-- pepperoni realista: aro escuro, poça de gordura, gordura branca, brilho -->
+  <symbol id="pep" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="47" fill="#6E1410"/>
+    <circle cx="50" cy="50" r="44" fill="url(#gPep)"/>
+    <ellipse cx="53" cy="58" rx="20" ry="15" fill="#7A1611" opacity=".42" filter="url(#soft2)"/>
+    <g fill="#F6D3BE" opacity=".5">
+      <circle cx="34" cy="46" r="4.2"/><circle cx="62" cy="36" r="3.2"/>
+      <circle cx="58" cy="64" r="3.8"/><circle cx="41" cy="66" r="2.8"/>
+      <circle cx="70" cy="54" r="2.6"/><circle cx="46" cy="30" r="2.4"/>
+    </g>
+    <g fill="#4E0D0A" opacity=".45">
+      <ellipse cx="28" cy="60" rx="7" ry="5" transform="rotate(-20 28 60)"/>
+      <ellipse cx="66" cy="70" rx="6" ry="4" transform="rotate(15 66 70)"/>
+    </g>
+    <ellipse cx="37" cy="33" rx="19" ry="12" fill="#fff" opacity=".2" transform="rotate(-32 37 33)" filter="url(#soft2)"/>
+  </symbol>
+
+  <symbol id="leaf" viewBox="0 0 100 100">
+    <path d="M52 6C24 17 9 43 15 68c4 18 20 27 38 24 24-4 39-26 38-52C90 24 74 12 52 6Z" fill="url(#gLeaf)"/>
+    <path d="M52 6c-9 24-10 55-2 88" fill="none" stroke="#274D1E" stroke-width="4" stroke-linecap="round" opacity=".75"/>
+    <g fill="none" stroke="#274D1E" stroke-width="2.2" stroke-linecap="round" opacity=".4">
+      <path d="M49 30 27 23M51 50 22 45M52 70 26 72M52 32l23-13M53 52l27-10M53 72l22-5"/>
+    </g>
+    <path d="M40 18c-9 12-13 28-11 44" fill="none" stroke="#A8D48A" stroke-width="3" stroke-linecap="round" opacity=".35"/>
+  </symbol>
+
+  <symbol id="olive" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="44" fill="#241F26"/>
+    <circle cx="50" cy="50" r="44" fill="url(#gOlive)"/>
+    <circle cx="50" cy="50" r="17" fill="#5C3A1E"/>
+    <circle cx="50" cy="50" r="17" fill="#000" opacity=".35"/>
+    <ellipse cx="34" cy="30" rx="13" ry="8" fill="#8A8290" opacity=".45" transform="rotate(-34 34 30)" filter="url(#soft2)"/>
+  </symbol>
+  <radialGradient id="gOlive" cx="35%" cy="30%" r="75%">
+    <stop offset="0%" stop-color="#4A4350"/><stop offset="70%" stop-color="#2B252E"/><stop offset="100%" stop-color="#15111A"/>
+  </radialGradient>
+</defs>
+
+<g filter="url(#shadow)">
+  <!-- ══ BORDA ══ -->
+  <g filter="url(#melt)">
+    <circle cx="400" cy="400" r="378" fill="url(#gCrust)"/>
+  </g>
+
+  <!-- bolhas e queimados da borda -->
+  <g filter="url(#soft2)">
+    <g fill="#7E4310" opacity=".42">
+      <ellipse cx="400" cy="44"  rx="34" ry="17"/>
+      <ellipse cx="612" cy="128" rx="27" ry="15" transform="rotate(40 612 128)"/>
+      <ellipse cx="722" cy="330" rx="24" ry="15" transform="rotate(78 722 330)"/>
+      <ellipse cx="684" cy="560" rx="30" ry="15" transform="rotate(124 684 560)"/>
+      <ellipse cx="488" cy="742" rx="30" ry="16" transform="rotate(170 488 742)"/>
+      <ellipse cx="252" cy="736" rx="27" ry="15" transform="rotate(196 252 736)"/>
+      <ellipse cx="96"  cy="562" rx="28" ry="15" transform="rotate(240 96 562)"/>
+      <ellipse cx="66"  cy="318" rx="24" ry="15" transform="rotate(290 66 318)"/>
+      <ellipse cx="196" cy="106" rx="30" ry="16" transform="rotate(322 196 106)"/>
+    </g>
+    <g fill="#FFE2AE" opacity=".5">
+      <ellipse cx="330" cy="52"  rx="30" ry="14" transform="rotate(-10 330 52)"/>
+      <ellipse cx="672" cy="238" rx="24" ry="12" transform="rotate(60 672 238)"/>
+      <ellipse cx="590" cy="672" rx="26" ry="13" transform="rotate(148 590 672)"/>
+      <ellipse cx="128" cy="452" rx="24" ry="12" transform="rotate(258 128 452)"/>
+      <ellipse cx="150" cy="196" rx="22" ry="12" transform="rotate(318 150 196)"/>
+    </g>
+    <g fill="#4A2408" opacity=".3">
+      <ellipse cx="536" cy="72"  rx="15" ry="8" transform="rotate(20 536 72)"/>
+      <ellipse cx="712" cy="452" rx="14" ry="8" transform="rotate(100 712 452)"/>
+      <ellipse cx="350" cy="756" rx="16" ry="8" transform="rotate(178 350 756)"/>
+      <ellipse cx="70"  cy="430" rx="13" ry="7" transform="rotate(262 70 430)"/>
+    </g>
+  </g>
+
+  <!-- ══ MOLHO ══ -->
+  <g filter="url(#melt2)">
+    <circle cx="400" cy="400" r="330" fill="url(#gSauce)"/>
+  </g>
+
+  <!-- ══ QUEIJO ══ -->
+  <g filter="url(#melt)">
+    <circle cx="400" cy="400" r="318" fill="url(#gCheese)"/>
+  </g>
+
+  <!-- molho aparecendo entre o queijo -->
+  <g filter="url(#soft)" opacity=".62">
+    <g fill="#A82D1F">
+      <ellipse cx="238" cy="212" rx="34" ry="20" transform="rotate(-24 238 212)"/>
+      <ellipse cx="566" cy="286" rx="28" ry="17" transform="rotate(34 566 286)"/>
+      <ellipse cx="196" cy="486" rx="30" ry="18" transform="rotate(12 196 486)"/>
+      <ellipse cx="518" cy="596" rx="32" ry="18" transform="rotate(-20 518 596)"/>
+      <ellipse cx="386" cy="664" rx="26" ry="15"/>
+      <ellipse cx="646" cy="440" rx="24" ry="15" transform="rotate(70 646 440)"/>
+    </g>
+  </g>
+
+  <!-- queijo tostado -->
+  <g filter="url(#soft2)" opacity=".5">
+    <g fill="#C4801F">
+      <ellipse cx="300" cy="266" rx="40" ry="24" transform="rotate(-28 300 266)"/>
+      <ellipse cx="498" cy="222" rx="30" ry="18" transform="rotate(16 498 222)"/>
+      <ellipse cx="228" cy="380" rx="32" ry="20" transform="rotate(-6 228 380)"/>
+      <ellipse cx="574" cy="502" rx="34" ry="20" transform="rotate(26 574 502)"/>
+      <ellipse cx="360" cy="574" rx="36" ry="21" transform="rotate(-14 360 574)"/>
+      <ellipse cx="470" cy="388" rx="26" ry="16" transform="rotate(44 470 388)"/>
+    </g>
+  </g>
+
+  <!-- brilho / gordura do queijo -->
+  <g filter="url(#soft2)" opacity=".42">
+    <g fill="#FFF6D2">
+      <ellipse cx="286" cy="228" rx="30" ry="16" transform="rotate(-32 286 228)"/>
+      <ellipse cx="452" cy="300" rx="22" ry="12" transform="rotate(18 452 300)"/>
+      <ellipse cx="248" cy="468" rx="26" ry="13" transform="rotate(-8 248 468)"/>
+      <ellipse cx="560" cy="360" rx="20" ry="11" transform="rotate(52 560 360)"/>
+      <ellipse cx="400" cy="536" rx="24" ry="12" transform="rotate(-16 400 536)"/>
+    </g>
+  </g>
+
+  <!-- ══ PEPPERONI ══ -->
+  <g>
+    <use href="#pep" x="214" y="206" width="96" height="96"/>
+    <use href="#pep" x="378" y="158" width="88" height="88"/>
+    <use href="#pep" x="508" y="240" width="92" height="92"/>
+    <use href="#pep" x="158" y="364" width="90" height="90"/>
+    <use href="#pep" x="344" y="336" width="102" height="102"/>
+    <use href="#pep" x="536" y="402" width="88" height="88"/>
+    <use href="#pep" x="240" y="522" width="94" height="94"/>
+    <use href="#pep" x="404" y="530" width="96" height="96"/>
+    <use href="#pep" x="530" y="560" width="76" height="76"/>
+    <use href="#pep" x="284" y="270" width="66" height="66"/>
+    <use href="#pep" x="468" y="336" width="68" height="68"/>
+    <use href="#pep" x="326" y="452" width="72" height="72"/>
+    <use href="#pep" x="186" y="272" width="62" height="62"/>
+    <use href="#pep" x="450" y="646" width="64" height="64"/>
+  </g>
+
+  <!-- ══ AZEITONAS ══ -->
+  <g>
+    <use href="#olive" x="444" y="252" width="46" height="46"/>
+    <use href="#olive" x="266" y="440" width="44" height="44"/>
+    <use href="#olive" x="500" y="486" width="40" height="40"/>
+    <use href="#olive" x="360" y="238" width="38" height="38"/>
+    <use href="#olive" x="380" y="618" width="40" height="40"/>
+    <use href="#olive" x="588" y="330" width="36" height="36"/>
+  </g>
+
+  <!-- ══ MANJERICÃO ══ -->
+  <g>
+    <use href="#leaf" x="256" y="300" width="76" height="76" transform="rotate(-26 294 338)"/>
+    <use href="#leaf" x="502" y="440" width="70" height="70" transform="rotate(38 537 475)"/>
+    <use href="#leaf" x="374" y="450" width="62" height="62" transform="rotate(160 405 481)"/>
+    <use href="#leaf" x="196" y="470" width="58" height="58" transform="rotate(-62 225 499)"/>
+    <use href="#leaf" x="452" y="196" width="56" height="56" transform="rotate(76 480 224)"/>
+    <use href="#leaf" x="300" y="596" width="60" height="60" transform="rotate(-140 330 626)"/>
+  </g>
+
+  <!-- granulado por cima de tudo -->
+  <circle cx="400" cy="400" r="382" fill="#8A5A2A" filter="url(#grain)" opacity=".5" style="mix-blend-mode:multiply"/>
+</g>
+</svg>
