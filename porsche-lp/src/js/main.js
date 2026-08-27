@@ -20,6 +20,8 @@
   var nav = document.getElementById('nav');
   var burger = document.getElementById('navBurger');
   var rail = document.getElementById('rail');
+  var showcaseSection = document.querySelector('.showcase');
+  var showcaseImg = document.querySelector('.showcase__img');
   var railFill = document.getElementById('railFill');
   var scrollCue = document.getElementById('scrollCue');
 
@@ -143,6 +145,15 @@
 
     // nav sólida depois que o hero termina
     if (nav) nav.classList.toggle('nav--solid', p >= 1);
+
+    // parallax leve na foto "Na estrada"
+    if (showcaseImg && showcaseSection) {
+      var srect = showcaseSection.getBoundingClientRect();
+      if (srect.bottom > 0 && srect.top < window.innerHeight) {
+        var sp = (window.innerHeight - srect.top) / (window.innerHeight + srect.height);
+        showcaseImg.style.transform = 'translateY(' + ((sp - 0.5) * 60) + 'px)';
+      }
+    }
 
     // some com o "role" assim que o usuário começa
     if (scrollCue && !userScrolled && p > 0.01) {
