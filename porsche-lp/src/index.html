@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Porsche Study — Hero Concept</title>
-<meta name="description" content="Estudo de estilo de hero section inspirado em revelações automotivas premium. Projeto de portfólio, não-oficial.">
+<title>Porsche Taycan — Hero Concept</title>
+<meta name="description" content="Estudo de hero section com scroll controlando o tempo do vídeo. Projeto de portfólio, não-oficial.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -40,35 +40,162 @@
     </button>
   </header>
 
-  <!-- HERO -->
+  <!--
+    HERO — o scroll controla o tempo do vídeo (estilo Apple).
+    A altura da <section> define quanto scroll = 10s de vídeo.
+    Para deixar mais lento/rápido, mexa em --hero-scroll no CSS.
+    Para mudar os textos e os segundos em que aparecem, edite
+    data-in / data-out de cada .cue abaixo (valores em segundos).
+  -->
   <section class="hero" id="hero">
-    <div class="hero__stage" id="heroStage">
-      <video
-        class="hero__video"
-        id="heroVideo"
-        autoplay muted loop playsinline
-        poster="assets/img/hero-poster.jpg">
-        <source src="assets/video/hero-car.webm" type="video/webm">
-        <source src="assets/video/hero-car.mp4" type="video/mp4">
-      </video>
-      <div class="hero__lightpool" aria-hidden="true"></div>
-      <div class="hero__vignette" aria-hidden="true"></div>
+    <div class="hero__sticky">
+
+      <div class="hero__stage" id="heroStage">
+        <video
+          class="hero__video"
+          id="heroVideo"
+          muted playsinline preload="auto"
+          poster="assets/img/hero-poster.jpg">
+          <source src="assets/video/hero-car.mp4" type="video/mp4">
+        </video>
+        <div class="hero__lightpool" aria-hidden="true"></div>
+        <div class="hero__vignette" aria-hidden="true"></div>
+      </div>
+
+      <div class="hero__cues" id="heroCues">
+
+        <article class="cue cue--center" data-in="0" data-out="3.2">
+          <p class="cue__eyebrow">100% elétrico</p>
+          <h1 class="cue__title">Taycan</h1>
+        </article>
+
+        <article class="cue cue--corner" data-in="4" data-out="5.9">
+          <p class="cue__label">Matrix LED</p>
+          <p class="cue__text">A assinatura de quatro pontos que se reconhece
+             antes do resto do carro.</p>
+        </article>
+
+        <article class="cue cue--corner" data-in="6.2" data-out="7.9">
+          <p class="cue__label">Pinças amarelas</p>
+          <p class="cue__text">Freios cerâmicos PCCB — a cor existe para
+             ser lida a 200 metros.</p>
+        </article>
+
+        <article class="cue cue--center" data-in="8.4" data-out="10.1">
+          <p class="cue__eyebrow">Turbo S</p>
+          <h2 class="cue__title cue__title--sm">Silhueta completa</h2>
+          <a href="#specs" class="btn btn--pill">
+            Ficha técnica
+            <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true">
+              <path d="M1 8h13M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </article>
+
+      </div>
+
+      <!-- trilho de progresso com marcações nos pontos de texto -->
+      <div class="rail" id="rail" aria-hidden="true">
+        <div class="rail__line"><i id="railFill"></i></div>
+      </div>
+
+      <div class="hero__scrollcue" id="scrollCue" aria-hidden="true">
+        <span>role</span>
+        <i></i>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FICHA TÉCNICA: entra sozinha quando o vídeo do hero chega ao fim -->
+  <section class="specs" id="specs">
+    <div class="specs__head" data-reveal>
+      <p class="eyebrow">Ficha técnica</p>
+      <h2 class="section-title">Números, não adjetivos.</h2>
     </div>
 
-    <div class="hero__content">
-      <div class="hero__copy">
-        <a href="#contact" class="btn btn--pill hero__reveal">
-          Explorar
-          <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true">
-            <path d="M1 8h13M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
+    <div class="specs__stats" data-reveal>
+      <div class="stat">
+        <span class="stat__value" data-count="761" data-suffix=" cv">761 cv</span>
+        <span class="stat__label">Potência combinada<br>com overboost</span>
+      </div>
+      <div class="stat">
+        <span class="stat__value" data-count="2.6" data-decimals="1" data-suffix=" s">2.6 s</span>
+        <span class="stat__label">0 a 100 km/h</span>
+      </div>
+      <div class="stat">
+        <span class="stat__value" data-count="260" data-suffix=" km/h">260 km/h</span>
+        <span class="stat__label">Velocidade máxima</span>
+      </div>
+      <div class="stat">
+        <span class="stat__value" data-count="500" data-prefix="~" data-suffix=" km">~500 km</span>
+        <span class="stat__label">Autonomia (WLTP)</span>
       </div>
     </div>
 
-    <div class="hero__scrollcue hero__reveal" aria-hidden="true">
-      <span>role</span>
-      <i></i>
+    <ul class="specs__list" data-reveal>
+      <li class="specs__row">
+        <span class="specs__row-label">Motor</span>
+        <span class="specs__row-text">Dois motores síncronos, um em cada eixo — tração integral sem perder resposta.</span>
+      </li>
+      <li class="specs__row">
+        <span class="specs__row-label">Bateria</span>
+        <span class="specs__row-text">Pacote de alta tensão sob o assoalho — centro de gravidade baixo, chassi mais rígido.</span>
+      </li>
+      <li class="specs__row">
+        <span class="specs__row-label">Freios</span>
+        <span class="specs__row-text">Pinças PCCB pintadas de amarelo — cerâmica que não perde mordida em pista.</span>
+      </li>
+      <li class="specs__row">
+        <span class="specs__row-label">Direção</span>
+        <span class="specs__row-text">Eixo traseiro direcional de série — raio de giro de compacto num carro de 5 metros.</span>
+      </li>
+    </ul>
+  </section>
+
+  <div class="sweep" data-reveal aria-hidden="true"></div>
+
+  <!-- DESIGN -->
+  <section class="design" id="design">
+    <div class="design__head" data-reveal>
+      <p class="eyebrow">Design</p>
+      <h2 class="section-title">Quatro ângulos.<br>Uma assinatura.</h2>
+    </div>
+
+    <div class="design__gallery">
+      <figure class="design__card design__card--a" data-reveal>
+        <img src="assets/img/detail-front.jpg" alt="Porsche Taycan, vista frontal, faróis Matrix LED acesos" loading="lazy">
+        <figcaption><span class="design__tag">Frontal</span>A assinatura de quatro pontos, acesa.</figcaption>
+      </figure>
+      <figure class="design__card design__card--b" data-reveal>
+        <img src="assets/img/detail-headlight.jpg" alt="Detalhe do farol Matrix LED do Taycan" loading="lazy">
+        <figcaption><span class="design__tag">Óptica</span>Cada módulo de LED, comandado à parte.</figcaption>
+      </figure>
+      <figure class="design__card design__card--c" data-reveal>
+        <img src="assets/img/detail-wheel.jpg" alt="Roda e pinça de freio amarela PCCB do Taycan" loading="lazy">
+        <figcaption><span class="design__tag">Freios</span>Pinça amarela — cor como declaração.</figcaption>
+      </figure>
+      <figure class="design__card design__card--d" data-reveal>
+        <img src="assets/img/detail-profile.jpg" alt="Perfil lateral completo do Porsche Taycan" loading="lazy">
+        <figcaption><span class="design__tag">Perfil</span>Linha de teto contínua, sem coluna B aparente.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <div class="sweep" data-reveal aria-hidden="true"></div>
+
+  <!-- CONTATO -->
+  <section class="contact" id="contact">
+    <div class="contact__inner" data-reveal>
+      <p class="eyebrow">Contato</p>
+      <h2 class="section-title">O estudo termina aqui.<br>A ideia, não.</h2>
+      <p class="contact__text">Exercício pessoal de direção de arte e front-end — não uma concessionária.</p>
+      <a href="#hero" class="btn btn--pill">
+        Voltar ao início
+        <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true">
+          <path d="M8 13V2M3 7l5-5 5 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
     </div>
   </section>
 
