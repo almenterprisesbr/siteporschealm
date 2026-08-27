@@ -15,7 +15,11 @@ const TYPES = {
   '.jpeg': 'image/jpeg',
   '.webp': 'image/webp',
   '.ico' : 'image/x-icon',
-  '.json': 'application/json; charset=utf-8'
+  '.json': 'application/json; charset=utf-8',
+  '.mp4' : 'video/mp4',
+  '.webm': 'video/webm',
+  '.woff': 'font/woff',
+  '.woff2': 'font/woff2'
 };
 
 http.createServer((req, res) => {

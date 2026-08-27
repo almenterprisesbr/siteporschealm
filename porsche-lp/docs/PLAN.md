@@ -42,20 +42,35 @@ Duas referências analisadas (ver `references/REFERENCES.md` para o detalhe):
 **Síntese de direção:** tela preta pura → luz revela o carro → interface entra
 em stagger depois. Um único acento de cor. Tipografia leve.
 
-## 2. Decisões técnicas em aberto (preciso da sua confirmação)
+## 2. Decisões técnicas — RESOLVIDAS
 
-| Decisão | Opção A | Opção B |
-|---|---|---|
-| **Reveal do carro** | Vídeo de fundo (mp4/webm, leve, em loop) | Imagem estática do carro + CSS/JS anima luz por cima (`mix-blend-mode`, mask de brilho) |
-| **Carro** | Você tem foto/render do carro específico (qual modelo/cor?) | Eu gero um render com IA (tenho ferramenta de geração de imagem/vídeo) |
-| **Stack** | HTML+CSS+JS puro (igual ao site da pizza — GSAP via CDN pra animação) | Mesma coisa, mas como projeto Vite (build, mais organizado p/ crescer) |
-| **Marca** | É pra ser genuinamente Porsche (nome, brasão, cores oficiais) | É um conceito/inspirado em estética Porsche, marca própria fictícia |
+| Decisão | Escolhido |
+|---|---|
+| **Marca** | Estudo/portfólio pessoal. Não vai ao ar como site oficial da Porsche. Adicionado disclaimer discreto no rodapé ("projeto conceitual e não-oficial... sem afiliação com a Porsche AG") por transparência. |
+| **Carro** | Você vai enviar a foto/vídeo do carro. Solte em `references/inbox/` ou direto em `src/assets/video/hero-car.mp4` (+ `.webm` se tiver). |
+| **Reveal do carro** | Vídeo de fundo em loop (`<video autoplay muted loop>`), com fallback em CSS puro (gradiente de estúdio) enquanto o arquivo não existe — o site já roda sem quebrar. |
+| **Stack** | HTML/CSS/JS puro + GSAP via CDN, igual ao site da pizza. Sem build step. |
 
-**Pergunta importante:** usar a marca "Porsche" (nome, brasão, wordmark) de forma
-não-oficial em uma landing page pública é problema de marca registrada — só
-faz sentido se for projeto pessoal/portfólio/estudo, não para publicar como
-site comercial de terceiros usando a marca sem licença. Preciso saber o
-propósito final pra te orientar certo nisso.
+## 3. Status da Fase 3 (protótipo)
+
+✅ Scaffold construído em `src/index.html`, `src/css/style.css`, `src/js/main.js`:
+- Preloader (anel + wordmark acendendo).
+- Hero com stage de vídeo + vinheta + poça de luz + wordmark fantasma atrás do carro.
+- Reveal em stagger via GSAP (nav → brilho do vídeo → poça de luz → wordmark →
+  linhas do título → subcopy/CTA/card de specs/ícones/scroll cue).
+- Card de specs com leader line apontando pro carro (visível só em desktop).
+- Responsivo: painel vira scroll horizontal abaixo de 900px, nav vira hambúrguer.
+- `prefers-reduced-motion` respeitado (pula direto pro estado final).
+- Fallback automático caso o vídeo do carro ainda não exista (`stage.no-video`).
+
+Verificado no preview local (`node dev-server.js` → `/porsche-lp/src/index.html`):
+sem erros de console além dos 404 esperados do vídeo/poster ainda não enviados;
+timeline do GSAP chega no estado final correto; grid de 2 colunas no desktop e
+1 coluna no mobile sem overflow horizontal.
+
+**Pendente para ficar 100% real:** o vídeo/imagem do carro
+(`src/assets/video/hero-car.mp4`) e, se quiser, um poster
+(`src/assets/img/hero-poster.jpg`) pro primeiro frame antes do vídeo carregar.
 
 ## 3. Estrutura de seções da hero (proposta inicial)
 
