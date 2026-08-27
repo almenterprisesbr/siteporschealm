@@ -209,13 +209,6 @@ button { font-family: inherit; cursor: pointer; }
   mask-image: radial-gradient(ellipse 70% 60% at 50% 20%, #000 0%, transparent 70%);
 }
 
-.hero__rays {
-  opacity: 0;
-  transition: opacity 1.6s var(--ease-out);
-}
-
-.hero__rays.is-visible { opacity: 1; }
-
 .hero__vignette {
   position: absolute;
   inset: 0;

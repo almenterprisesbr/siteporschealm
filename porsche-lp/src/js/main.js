@@ -19,7 +19,6 @@
   var stage = document.getElementById('heroStage');
   var nav = document.getElementById('nav');
   var burger = document.getElementById('navBurger');
-  var heroRays = document.getElementById('heroRays');
   var rail = document.getElementById('rail');
   var railFill = document.getElementById('railFill');
   var scrollCue = document.getElementById('scrollCue');
@@ -163,7 +162,6 @@
     if (video) video.style.filter = 'brightness(1)';
     var lightpool = document.querySelector('.hero__lightpool');
     if (lightpool) lightpool.style.opacity = '1';
-    if (heroRays) heroRays.classList.add('is-visible');
     if (rail) rail.classList.add('is-visible');
     if (scrollCue) scrollCue.style.opacity = '1';
     var pre = document.getElementById('preloader');
@@ -194,7 +192,6 @@
       .to('.nav', { opacity: 1, duration: .6 }, 0)
       .to(video, { filter: 'brightness(1)', duration: 1.6, ease: 'power2.inOut' }, 0)
       .to('.hero__lightpool', { opacity: 1, duration: 1.4, ease: 'power2.out' }, .3)
-      .call(function () { if (heroRays) heroRays.classList.add('is-visible'); }, null, .5)
       .call(function () {
         if (rail) rail.classList.add('is-visible');
         if (scrollCue && !userScrolled) scrollCue.style.opacity = '1';
