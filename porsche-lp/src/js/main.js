@@ -245,6 +245,56 @@
     }
   }
 
+  /* ---------------------------------- Ficha técnica: hover troca a imagem ---------------------------------- */
+
+  var specVisual = document.querySelector('.specs__visual');
+  if (specVisual) {
+    var specImgs = [].slice.call(specVisual.querySelectorAll('img'));
+    [].forEach.call(document.querySelectorAll('.specs__row[data-image]'), function (row) {
+      function activate() {
+        var key = row.dataset.image;
+        specImgs.forEach(function (img) { img.classList.toggle('is-active', img.dataset.key === key); });
+      }
+      row.addEventListener('mouseenter', activate);
+      row.addEventListener('focus', activate);
+    });
+  }
+
+  /* ---------------------------------- Design: filmstrip horizontal (arrasta / roda o mouse) ---------------------------------- */
+
+  var gallery = document.getElementById('designGallery');
+  if (gallery) {
+    gallery.addEventListener('wheel', function (e) {
+      if (gallery.scrollWidth <= gallery.clientWidth) return;
+      if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
+      e.preventDefault();
+      gallery.scrollLeft += e.deltaY;
+    }, { passive: false });
+
+    var dragging = false, dragStartX = 0, dragStartScroll = 0;
+
+    gallery.addEventListener('pointerdown', function (e) {
+      if (e.pointerType !== 'mouse') return;
+      dragging = true;
+      dragStartX = e.clientX;
+      dragStartScroll = gallery.scrollLeft;
+      gallery.classList.add('is-dragging');
+      gallery.setPointerCapture(e.pointerId);
+    });
+
+    gallery.addEventListener('pointermove', function (e) {
+      if (!dragging) return;
+      gallery.scrollLeft = dragStartScroll - (e.clientX - dragStartX);
+    });
+
+    ['pointerup', 'pointercancel'].forEach(function (ev) {
+      gallery.addEventListener(ev, function () {
+        dragging = false;
+        gallery.classList.remove('is-dragging');
+      });
+    });
+  }
+
   /* ---------------------------------- Boot ---------------------------------- */
 
   if (reduceMotion) {

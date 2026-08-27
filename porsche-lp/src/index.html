@@ -111,7 +111,7 @@
   <section class="specs" id="specs">
     <div class="specs__head" data-reveal>
       <p class="eyebrow">Ficha técnica</p>
-      <h2 class="section-title">Números, não adjetivos.</h2>
+      <h2 class="section-title">Números, <span class="accent">não adjetivos.</span></h2>
     </div>
 
     <div class="specs__stats" data-reveal>
@@ -133,24 +133,37 @@
       </div>
     </div>
 
-    <ul class="specs__list" data-reveal>
-      <li class="specs__row">
-        <span class="specs__row-label">Motor</span>
-        <span class="specs__row-text">Dois motores síncronos, um em cada eixo — tração integral sem perder resposta.</span>
-      </li>
-      <li class="specs__row">
-        <span class="specs__row-label">Bateria</span>
-        <span class="specs__row-text">Pacote de alta tensão sob o assoalho — centro de gravidade baixo, chassi mais rígido.</span>
-      </li>
-      <li class="specs__row">
-        <span class="specs__row-label">Freios</span>
-        <span class="specs__row-text">Pinças PCCB pintadas de amarelo — cerâmica que não perde mordida em pista.</span>
-      </li>
-      <li class="specs__row">
-        <span class="specs__row-label">Direção</span>
-        <span class="specs__row-text">Eixo traseiro direcional de série — raio de giro de compacto num carro de 5 metros.</span>
-      </li>
-    </ul>
+    <div class="specs__body">
+      <ul class="specs__list" data-reveal>
+        <li class="specs__row" data-image="front" tabindex="0">
+          <span class="specs__row-index">01</span>
+          <span class="specs__row-label">Motor</span>
+          <span class="specs__row-text">Dois motores síncronos, um em cada eixo — tração integral sem perder resposta.</span>
+        </li>
+        <li class="specs__row" data-image="profile" tabindex="0">
+          <span class="specs__row-index">02</span>
+          <span class="specs__row-label">Bateria</span>
+          <span class="specs__row-text">Pacote de alta tensão sob o assoalho — centro de gravidade baixo, chassi mais rígido.</span>
+        </li>
+        <li class="specs__row" data-image="wheel" tabindex="0">
+          <span class="specs__row-index">03</span>
+          <span class="specs__row-label">Freios</span>
+          <span class="specs__row-text">Pinças PCCB pintadas de amarelo — cerâmica que não perde mordida em pista.</span>
+        </li>
+        <li class="specs__row" data-image="headlight" tabindex="0">
+          <span class="specs__row-index">04</span>
+          <span class="specs__row-label">Direção</span>
+          <span class="specs__row-text">Eixo traseiro direcional de série — raio de giro de compacto num carro de 5 metros.</span>
+        </li>
+      </ul>
+
+      <div class="specs__visual" data-reveal aria-hidden="true">
+        <img src="assets/img/detail-front.jpg" data-key="front" class="is-active" alt="">
+        <img src="assets/img/detail-profile.jpg" data-key="profile" alt="">
+        <img src="assets/img/detail-wheel.jpg" data-key="wheel" alt="">
+        <img src="assets/img/detail-headlight.jpg" data-key="headlight" alt="">
+      </div>
+    </div>
   </section>
 
   <div class="sweep" data-reveal aria-hidden="true"></div>
@@ -158,26 +171,41 @@
   <!-- DESIGN -->
   <section class="design" id="design">
     <div class="design__head" data-reveal>
-      <p class="eyebrow">Design</p>
-      <h2 class="section-title">Quatro ângulos.<br>Uma assinatura.</h2>
+      <div>
+        <p class="eyebrow">Design</p>
+        <h2 class="section-title">Cada detalhe,<br><span class="accent">decidido.</span></h2>
+      </div>
+      <span class="design__hint"><i></i>arraste</span>
     </div>
 
-    <div class="design__gallery">
-      <figure class="design__card design__card--a" data-reveal>
+    <div class="design__gallery" id="designGallery">
+      <figure class="design__card" data-reveal>
+        <span class="design__index">01</span>
         <img src="assets/img/detail-front.jpg" alt="Porsche Taycan, vista frontal, faróis Matrix LED acesos" loading="lazy">
         <figcaption><span class="design__tag">Frontal</span>A assinatura de quatro pontos, acesa.</figcaption>
       </figure>
-      <figure class="design__card design__card--b" data-reveal>
+      <figure class="design__card" data-reveal>
+        <span class="design__index">02</span>
         <img src="assets/img/detail-headlight.jpg" alt="Detalhe do farol Matrix LED do Taycan" loading="lazy">
         <figcaption><span class="design__tag">Óptica</span>Cada módulo de LED, comandado à parte.</figcaption>
       </figure>
-      <figure class="design__card design__card--c" data-reveal>
+      <figure class="design__card design__card--wheel" data-reveal>
+        <span class="design__index">03</span>
         <img src="assets/img/detail-wheel.jpg" alt="Roda e pinça de freio amarela PCCB do Taycan" loading="lazy">
         <figcaption><span class="design__tag">Freios</span>Pinça amarela — cor como declaração.</figcaption>
       </figure>
-      <figure class="design__card design__card--d" data-reveal>
+      <figure class="design__card" data-reveal>
+        <span class="design__index">04</span>
         <img src="assets/img/detail-profile.jpg" alt="Perfil lateral completo do Porsche Taycan" loading="lazy">
         <figcaption><span class="design__tag">Perfil</span>Linha de teto contínua, sem coluna B aparente.</figcaption>
+      </figure>
+      <figure class="design__card design__card--soon" data-reveal>
+        <span class="design__index">05</span>
+        <svg class="design__soon-icon" viewBox="0 0 48 48" aria-hidden="true">
+          <circle cx="24" cy="24" r="15" fill="none" stroke="currentColor" stroke-width="1"/>
+          <path d="M24 24 L24 15 M24 24 L30 27" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+        </svg>
+        <figcaption><span class="design__tag">Interior</span>Em breve.</figcaption>
       </figure>
     </div>
   </section>
@@ -187,11 +215,11 @@
   <!-- CONTATO -->
   <section class="contact" id="contact">
     <div class="contact__inner" data-reveal>
-      <p class="eyebrow">Contato</p>
-      <h2 class="section-title">O estudo termina aqui.<br>A ideia, não.</h2>
-      <p class="contact__text">Exercício pessoal de direção de arte e front-end — não uma concessionária.</p>
+      <p class="eyebrow">Taycan Turbo S</p>
+      <h2 class="section-title">Zero rotações.<br><span class="accent">Toda a resposta.</span></h2>
+      <p class="contact__text">Tração integral, freios cerâmicos e resposta imediata — o suficiente pra esquecer que é elétrico.</p>
       <a href="#hero" class="btn btn--pill">
-        Voltar ao início
+        Reviver a experiência
         <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true">
           <path d="M8 13V2M3 7l5-5 5 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
