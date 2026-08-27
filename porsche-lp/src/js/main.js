@@ -49,7 +49,7 @@
   /* ---------------------------------- Timelines ---------------------------------- */
 
   function revealInstant() {
-    document.querySelectorAll('.hero__reveal, .line, .nav, .hero__wordmark, .hero__lightpool')
+    document.querySelectorAll('.hero__reveal, .nav, .hero__lightpool')
       .forEach(function (el) {
         el.style.opacity = '1';
         el.style.transform = 'none';
@@ -82,19 +82,12 @@
     tl.to('.nav', { opacity: 1, duration: .6 }, 0)
       .to(video, { filter: 'brightness(1)', duration: 1.6, ease: 'power2.inOut' }, 0)
       .to('.hero__lightpool', { opacity: 1, duration: 1.4, ease: 'power2.out' }, .3)
-      .to('.hero__wordmark', { opacity: 1, duration: 1.2 }, .5)
-      .to('.line', {
-        y: 0,
-        duration: 1,
-        stagger: .09,
-        ease: 'power4.out'
-      }, .9)
       .to('.hero__reveal', {
         opacity: 1,
         y: 0,
         duration: .8,
         stagger: .12
-      }, 1.3)
+      }, .9)
       .fromTo(video, { scale: 1.06 }, { scale: 1, duration: 2.4, ease: 'power2.out' }, 0);
   }
 
