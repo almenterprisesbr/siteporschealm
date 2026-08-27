@@ -15,7 +15,7 @@
 
   /* Quanto scroll equivale aos 10s de vídeo.
      Maior = mais devagar, mais tempo lendo cada texto. */
-  --hero-scroll: 600vh;
+  --hero-scroll: 520vh;
 }
 
 * { box-sizing: border-box; }
@@ -162,6 +162,14 @@ button { font-family: inherit; cursor: pointer; }
   object-fit: cover;
   object-position: center 58%;
   filter: brightness(0);
+  /* leve zoom contínuo — evita que o carro pareça "congelado"
+     quando o scroll chega no fim e o vídeo segura o último frame. */
+  animation: heroBreathe 24s ease-in-out infinite alternate;
+}
+
+@keyframes heroBreathe {
+  0%   { transform: scale(1); }
+  100% { transform: scale(1.035); }
 }
 
 /* fallback: vídeo indisponível */
@@ -763,7 +771,7 @@ button { font-family: inherit; cursor: pointer; }
 /* ---------------------------------- Responsive ---------------------------------- */
 
 @media (max-width: 900px) {
-  :root { --hero-scroll: 480vh; }
+  :root { --hero-scroll: 420vh; }
 
   .nav__links { display: none; }
   .nav__burger { display: flex; }
@@ -837,4 +845,5 @@ button { font-family: inherit; cursor: pointer; }
   .sweep::before { animation: none !important; opacity: 0 !important; }
   .design__card img { transition: none !important; }
   .design__hint i::after { animation: none !important; }
+  .hero__video { animation: none !important; }
 }
