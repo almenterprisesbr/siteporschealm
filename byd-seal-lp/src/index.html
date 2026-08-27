@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BYD Seal — Giro</title>
+<meta name="description" content="BYD Seal: sedã 100% elétrico. Estudo de landing page, projeto conceitual não-oficial.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- PRELOADER -->
+  <div class="preloader" id="preloader">
+    <svg class="preloader__ring" viewBox="0 0 64 64" aria-hidden="true">
+      <circle class="preloader__ring-track" cx="32" cy="32" r="28"></circle>
+      <circle class="preloader__ring-fill" cx="32" cy="32" r="28"></circle>
+    </svg>
+    <span class="preloader__word">SEAL</span>
+  </div>
+
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <div class="nav__brand">
+      <span class="nav__logo">BYD</span>
+      <span class="nav__tag">seal</span>
+    </div>
+    <nav class="nav__links" aria-label="Navegação principal">
+      <a href="#giro">O Carro</a>
+      <a href="#specs">Ficha Técnica</a>
+      <a href="#contact">Contato</a>
+    </nav>
+    <a href="#contact" class="btn btn--pill btn--nav">Test Drive</a>
+  </header>
+
+  <!-- HERO / GIRO -->
+  <section class="hero" id="giro">
+    <span class="hero__ghost" aria-hidden="true">SEAL</span>
+    <div class="hero__lightpool" aria-hidden="true"></div>
+
+    <div class="hero__copy">
+      <p class="eyebrow">100% elétrico</p>
+      <h1 class="hero__title">Sedã que une<br>potência e<br><span class="accent">oceano.</span></h1>
+      <p class="hero__sub">Arraste o carro. Veja o design "Ocean X Face" de todos os ângulos.</p>
+    </div>
+
+    <div class="rig" id="rig">
+      <div class="rig__stage" id="rigStage">
+        <svg class="rig__car" id="rigCar" viewBox="0 0 600 220" aria-hidden="true">
+          <ellipse class="rig__shadow" cx="300" cy="196" rx="220" ry="14"></ellipse>
+          <path class="rig__body" d="M40 150
+            C 55 120 95 100 140 96
+            L 178 66 C 200 50 232 42 268 42
+            L 372 42 C 404 42 432 52 452 70
+            L 486 98 C 528 104 560 122 572 150
+            L 572 168 L 40 168 Z"></path>
+          <path class="rig__glass" d="M182 92 L 206 66 C 224 54 248 48 270 48 L 366 48
+            C 392 48 414 56 430 72 L 452 92 Z"></path>
+          <line class="rig__pillar" x1="270" y1="48" x2="270" y2="92"></line>
+          <circle class="rig__wheel" cx="152" cy="168" r="30"></circle>
+          <circle class="rig__wheel" cx="470" cy="168" r="30"></circle>
+          <circle class="rig__hub" cx="152" cy="168" r="11"></circle>
+          <circle class="rig__hub" cx="470" cy="168" r="11"></circle>
+          <path class="rig__crease" d="M60 148 L 560 148"></path>
+          <path class="rig__light rig__light--head" d="M556 138 L 574 142 L 574 156 L 556 158 Z"></path>
+          <path class="rig__light rig__light--tail" d="M44 138 L 26 142 L 26 156 L 44 158 Z"></path>
+        </svg>
+      </div>
+
+      <div class="rig__hint" id="rigHint">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 12h8M8 12l3-3M8 12l3 3M16 12l-3-3M16 12l-3 3" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>arraste para girar</span>
+      </div>
+
+      <div class="rig__angle" id="rigAngle" aria-hidden="true"><span id="rigAngleValue">0</span>°</div>
+    </div>
+
+    <div class="hero__stats">
+      <div class="stat-mini"><span>4800<i>mm</i></span><small>Comprimento</small></div>
+      <div class="stat-mini"><span>2920<i>mm</i></span><small>Entre-eixos</small></div>
+      <div class="stat-mini"><span>0.61</span><small>Prop. eixo/comprim.</small></div>
+      <div class="stat-mini"><span>40.500<i>Nm/°</i></span><small>Rigidez torcional (CTB)</small></div>
+    </div>
+
+    <div class="hero__scrollcue" aria-hidden="true"><span>role</span><i></i></div>
+  </section>
+
+  <!-- FICHA TÉCNICA -->
+  <section class="specs" id="specs">
+    <div class="specs__head" data-reveal>
+      <p class="eyebrow">Ficha técnica</p>
+      <h2 class="section-title">Tecnologia que<br><span class="accent">sustenta o carro.</span></h2>
+    </div>
+
+    <ul class="specs__list" data-reveal>
+      <li class="specs__row">
+        <span class="specs__row-index">01</span>
+        <span class="specs__row-label">Cell to Body (CTB)</span>
+        <span class="specs__row-text">A Bateria Blade integrada à carroceria forma uma estrutura em sanduíche — 40.500 Nm/° de rigidez torcional.</span>
+      </li>
+      <li class="specs__row">
+        <span class="specs__row-index">02</span>
+        <span class="specs__row-label">Bateria Blade</span>
+        <span class="specs__row-text">LFP, mais de 5.000 ciclos de carga, aprovada em teste de penetração sem fogo nem fumaça.</span>
+      </li>
+      <li class="specs__row">
+        <span class="specs__row-index">03</span>
+        <span class="specs__row-label">Carregamento</span>
+        <span class="specs__row-text">Carregador DC de 150 kW — de 30% a 80% em 30 minutos.</span>
+      </li>
+      <li class="specs__row">
+        <span class="specs__row-index">04</span>
+        <span class="specs__row-label">iTAC</span>
+        <span class="specs__row-text">Controle inteligente de torque distribui tração e minimiza derrapagem em qualquer condição.</span>
+      </li>
+      <li class="specs__row">
+        <span class="specs__row-index">05</span>
+        <span class="specs__row-label">Autonomia</span>
+        <span class="specs__row-text">Até 372 km (PBEV/INMETRO) na versão de entrada.</span>
+      </li>
+    </ul>
+  </section>
+
+  <div class="sweep" data-reveal aria-hidden="true"></div>
+
+  <!-- CONTATO -->
+  <section class="contact" id="contact">
+    <div class="rays" aria-hidden="true"></div>
+    <div class="contact__inner" data-reveal>
+      <p class="eyebrow">BYD Seal</p>
+      <h2 class="section-title">Estética oceânica.<br><span class="accent">Potência elétrica.</span></h2>
+      <p class="contact__text">Agende um test drive e sinta o Ocean X Face de perto.</p>
+      <a href="#giro" class="btn btn--pill">
+        Girar de novo
+        <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true">
+          <path d="M8 13V2M3 7l5-5 5 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <footer class="disclaimer">
+    Projeto conceitual e não-oficial · peça de portfólio · sem afiliação com a BYD.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
