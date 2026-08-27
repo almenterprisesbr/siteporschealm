@@ -194,6 +194,28 @@ button { font-family: inherit; cursor: pointer; }
   pointer-events: none;
 }
 
+/* feixes de luz — motivo gráfico reaproveitado no Contato */
+.rays {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  background: repeating-conic-gradient(
+    from 200deg at 50% -10%,
+    rgba(255, 255, 255, .1) 0deg 4deg,
+    transparent 4deg 14deg
+  );
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 20%, #000 0%, transparent 70%);
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 20%, #000 0%, transparent 70%);
+}
+
+.hero__rays {
+  opacity: 0;
+  transition: opacity 1.6s var(--ease-out);
+}
+
+.hero__rays.is-visible { opacity: 1; }
+
 .hero__vignette {
   position: absolute;
   inset: 0;
@@ -730,6 +752,7 @@ button { font-family: inherit; cursor: pointer; }
 .contact {
   position: relative;
   z-index: 2;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   text-align: center;
@@ -738,7 +761,11 @@ button { font-family: inherit; cursor: pointer; }
   padding: clamp(100px, 18vh, 200px) clamp(20px, 5vw, 64px);
 }
 
+.contact .rays { opacity: .6; }
+
 .contact__inner {
+  position: relative;
+  z-index: 1;
   max-width: 640px;
   display: flex;
   flex-direction: column;
