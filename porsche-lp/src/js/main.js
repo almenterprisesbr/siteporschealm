@@ -85,6 +85,13 @@
 
   var canScrub = false;
   var duration = FALLBACK_DURATION;
+  // O vídeo toca sozinho assim que a página abre (autoplay). O scroll só
+  // assume o controle (scrub) no primeiro gesto do usuário — daí em diante
+  // funciona como antes, com o tempo do vídeo preso à posição do scroll.
+  var autoPlaying = !reduceMotion;
+
+  var interiorVideo = document.querySelector('.interior__video');
+  if (reduceMotion && interiorVideo) interiorVideo.pause();
 
   if (video) {
     video.addEventListener('loadedmetadata', function () {
@@ -133,8 +140,11 @@
     smoothTime += (target - smoothTime) * SMOOTHING;
     if (Math.abs(target - smoothTime) < 0.004) smoothTime = target;
 
-    // Só mexe no vídeo se ele estiver pronto e não estiver no meio de um seek.
-    if (canScrub && !video.seeking) {
+    // Enquanto autoPlaying, o vídeo toca sozinho (nativo) — não mexe no
+    // currentTime, senão trava ele de volta no frame 0. Só mexe no vídeo
+    // se ele estiver pronto, não estiver no meio de um seek, e o usuário
+    // já tiver assumido o controle via scroll.
+    if (canScrub && !video.seeking && !autoPlaying) {
       if (Math.abs(video.currentTime - smoothTime) > 1 / 48) {
         try { video.currentTime = smoothTime; } catch (e) { /* seek recusado, tenta no próximo frame */ }
       }
@@ -161,6 +171,14 @@
       scrollCue.style.opacity = '0';
     }
 
+    // primeiro scroll: passa o controle do autoplay pro scrub, sem pulo
+    // (smoothTime assume o frame exato em que o autoplay estava).
+    if (autoPlaying && p > 0.01) {
+      autoPlaying = false;
+      video.pause();
+      smoothTime = video.currentTime;
+    }
+
     requestAnimationFrame(loop);
   }
 
@@ -170,7 +188,7 @@
   // lista empilhada e legível em vez de aparecerem por segundo.
   function revealInstant(showAllCues) {
     if (nav) nav.style.opacity = '1';
-    if (video) video.style.filter = 'brightness(1)';
+    if (video) { video.style.filter = 'brightness(1)'; video.pause(); }
     var lightpool = document.querySelector('.hero__lightpool');
     if (lightpool) lightpool.style.opacity = '1';
     if (rail) rail.classList.add('is-visible');
